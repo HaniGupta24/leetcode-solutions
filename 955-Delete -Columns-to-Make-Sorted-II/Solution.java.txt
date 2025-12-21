@@ -1,0 +1,39 @@
+class Solution {
+    public int minDeletionSize(String[] strs) {
+        int m = strs[0].length();
+        int n = strs.length;
+
+        boolean[] ordering = new boolean[n - 1];
+        int delcount = 0;
+
+        for (int i = 0; i < m; i++) {
+            boolean delflag = false;
+
+            // Check if this column breaks lexicographical order
+            for (int j = 0; j < n - 1; j++) {
+                if (!ordering[j]) {
+                    if (strs[j].charAt(i) > strs[j + 1].charAt(i)) {
+                        delflag = true;
+                        break;
+                    }
+                }
+            }
+
+            // If invalid column → delete it
+            if (delflag) {
+                delcount++;
+                continue;
+            }
+
+            // Update ordering status
+            for (int k = 0; k < n - 1; k++) {
+                if (!ordering[k] && 
+                    strs[k].charAt(i) < strs[k + 1].charAt(i)) {
+                    ordering[k] = true;
+                }
+            }
+        }
+
+        return delcount;
+    }
+}
