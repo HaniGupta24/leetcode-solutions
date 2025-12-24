@@ -7,6 +7,6 @@ This repository contains my daily LeetCode problem solutions.
 - Goal: Consistent practice & interview prep
 
 ## 📊 Progress
-- Easy: 5
-- Medium: XX
-- Hard: XX
+- Easy: 06
+- Medium: 03
+- Hard: 01
