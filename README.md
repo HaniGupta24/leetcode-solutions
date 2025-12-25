@@ -8,5 +8,5 @@ This repository contains my daily LeetCode problem solutions.
 
 ## 📊 Progress
 - Easy: 06
-- Medium: 03
+- Medium: 04
 - Hard: 01
