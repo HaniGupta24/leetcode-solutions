@@ -1,7 +1,7 @@
-class Solution {
-    public int bestClosingTime(String customers) {
+// class Solution {
+//     public int bestClosingTime(String customers) {
 //         int currpenalty = 0, minpenalty = 0;
-int n=customers.length();
+
 //         for (int i = 0; i < customers.length(); i++) {
 //             if (customers.charAt(i) == 'Y') {
 //                 currpenalty++;
@@ -24,8 +24,9 @@ int n=customers.length();
 //         return hour;
 //     }
 // }
-
-
+class Solution {
+    public int bestClosingTime(String customers) 
+int n=customers.length();
 int result=0;
         int customerLeft=0;
         for(int i=0;i<n;i++){
@@ -42,3 +43,4 @@ int result=0;
         return result;
     }
 }
+
