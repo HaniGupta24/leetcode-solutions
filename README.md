@@ -16,6 +16,6 @@ This repository contains my LeetCode problem solutions for DSA practice and inte
 
 | Difficulty | Solved |
 |-----------|--------|
-| 🟢 Easy   | 15     |
-| 🟡 Medium | 8      |
-| 🔴 Hard   | 2      |
+| 🟢 Easy   | 11   |
+| 🟡 Medium |  3    |
+| 🔴 Hard   | 0      |
