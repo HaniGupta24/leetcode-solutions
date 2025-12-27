@@ -10,4 +10,12 @@ This repository contains my LeetCode problem solutions for DSA practice and inte
 
 📂 Organized by problem number & title
 
-💻 Languages used: JavaScript / Java / C++
+💻 Languages used:  Java 
+
+## 📊 Problem Statistics
+
+| Difficulty | Solved |
+|-----------|--------|
+| 🟢 Easy   | 11   |
+| 🟡 Medium |  3    |
+| 🔴 Hard   | 0      |
