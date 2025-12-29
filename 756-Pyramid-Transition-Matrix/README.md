@@ -21,4 +21,3 @@ Your task is to check whether it is possible to build the pyramid up to the top.
 - Recursion
 - Backtracking
 
-## 🧪 Example
