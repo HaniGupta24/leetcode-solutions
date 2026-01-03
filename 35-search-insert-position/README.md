@@ -1,35 +1,23 @@
-<h2><a href="https://leetcode.com/problems/search-insert-position">Search Insert Position</a></h2> <img src='https://img.shields.io/badge/Difficulty-Easy-brightgreen' alt='Difficulty: Easy' /><hr><p>Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.</p>
+# Search Insert Position
 
-<p>You must&nbsp;write an algorithm with&nbsp;<code>O(log n)</code> runtime complexity.</p>
+## 🧩 Problem Description
 
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+Given a **sorted array** of distinct integers and a target value, return the **index if the target is found**.  
+If not, return the index where it would be **inserted in order**.
 
-<pre>
-<strong>Input:</strong> nums = [1,3,5,6], target = 5
-<strong>Output:</strong> 2
-</pre>
+You must return the index such that the array remains sorted.
 
-<p><strong class="example">Example 2:</strong></p>
+---
 
-<pre>
-<strong>Input:</strong> nums = [1,3,5,6], target = 2
-<strong>Output:</strong> 1
-</pre>
+## 🛠️ Approach Used
 
-<p><strong class="example">Example 3:</strong></p>
+### ✅ Linear Search
 
-<pre>
-<strong>Input:</strong> nums = [1,3,5,6], target = 7
-<strong>Output:</strong> 4
-</pre>
+1. Traverse the array from left to right.
+2. Compare each element with the target.
+3. As soon as an element is **greater than or equal to the target**, return its index.
+4. If no such element is found, return the **length of the array** (insert at the end).
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+This approach is simple and easy to understand.
 
-<ul>
-	<li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
-	<li><code>nums</code> contains <strong>distinct</strong> values sorted in <strong>ascending</strong> order.</li>
-	<li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li>
-</ul>
+---
