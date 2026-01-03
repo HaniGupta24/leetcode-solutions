@@ -1,27 +1,34 @@
-<h2><a href="https://leetcode.com/problems/number-of-ways-to-paint-n-3-grid">Number of Ways to Paint N × 3 Grid</a></h2> <img src='https://img.shields.io/badge/Difficulty-Hard-red' alt='Difficulty: Hard' /><hr><p>You have a <code>grid</code> of size <code>n x 3</code> and you want to paint each cell of the grid with exactly one of the three colors: <strong>Red</strong>, <strong>Yellow,</strong> or <strong>Green</strong> while making sure that no two adjacent cells have the same color (i.e., no two cells that share vertical or horizontal sides have the same color).</p>
+# Number of Ways to Paint N × 3 Grid
 
-<p>Given <code>n</code> the number of rows of the grid, return <em>the number of ways</em> you can paint this <code>grid</code>. As the answer may grow large, the answer <strong>must be</strong> computed modulo <code>10<sup>9</sup> + 7</code>.</p>
+## 🧩 Problem Description
 
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/03/26/e1.png" style="width: 400px; height: 257px;" />
-<pre>
-<strong>Input:</strong> n = 1
-<strong>Output:</strong> 12
-<strong>Explanation:</strong> There are 12 possible way to paint the grid as shown.
-</pre>
+You are given an integer `n`. You need to count the number of ways to paint an `n × 3` grid using **3 different colors**, such that:
 
-<p><strong class="example">Example 2:</strong></p>
+- No two adjacent cells in the **same row** have the same color
+- No two adjacent cells in the **same column** have the same color
 
-<pre>
-<strong>Input:</strong> n = 5000
-<strong>Output:</strong> 30228214
-</pre>
+Return the answer modulo **10⁹ + 7**.
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+---
 
-<ul>
-	<li><code>n == grid.length</code></li>
-	<li><code>1 &lt;= n &lt;= 5000</code></li>
+## 🧠 Key Insight
+
+Each row can be painted in **two distinct patterns**:
+
+### 🔹 Pattern Types
+1. **ABA pattern (type 0)**  
+   - First and third cells have the same color  
+   - Example: `Red Blue Red`
+
+2. **ABC pattern (type 1)**  
+   - All three cells have different colors  
+   - Example: `Red Blue Green`
+
+---
+
+## 🛠️ Dynamic Programming Approach
+
+We use a DP table where:
+
+t;= 5000</code></li>
 </ul>
