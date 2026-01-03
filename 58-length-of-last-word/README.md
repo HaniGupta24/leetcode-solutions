@@ -1,37 +1,30 @@
-<h2><a href="https://leetcode.com/problems/length-of-last-word">Length of Last Word</a></h2> <img src='https://img.shields.io/badge/Difficulty-Easy-brightgreen' alt='Difficulty: Easy' /><hr><p>Given a string <code>s</code> consisting of words and spaces, return <em>the length of the <strong>last</strong> word in the string.</em></p>
+# Length of Last Word
 
-<p>A <strong>word</strong> is a maximal <span data-keyword="substring-nonempty">substring</span> consisting of non-space characters only.</p>
+## 🧩 Problem Description
 
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+Given a string `s` consisting of words and spaces, return the **length of the last word** in the string.
 
-<pre>
-<strong>Input:</strong> s = &quot;Hello World&quot;
-<strong>Output:</strong> 5
-<strong>Explanation:</strong> The last word is &quot;World&quot; with length 5.
-</pre>
+A **word** is defined as a maximal substring consisting of **non-space characters only**.
 
-<p><strong class="example">Example 2:</strong></p>
+---
 
-<pre>
-<strong>Input:</strong> s = &quot;   fly me   to   the moon  &quot;
-<strong>Output:</strong> 4
-<strong>Explanation:</strong> The last word is &quot;moon&quot; with length 4.
-</pre>
+## 🛠️ Approach
 
-<p><strong class="example">Example 3:</strong></p>
+### ✅ Optimized Iterative Approach (Used)
 
-<pre>
-<strong>Input:</strong> s = &quot;luffy is still joyboy&quot;
-<strong>Output:</strong> 6
-<strong>Explanation:</strong> The last word is &quot;joyboy&quot; with length 6.
-</pre>
+1. **Trim** the string to remove leading and trailing spaces.
+2. Start traversing the string **from the end**.
+3. Count characters until a space `' '` is encountered.
+4. The count obtained is the length of the last word.
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+This avoids using extra space like arrays or split operations.
 
-<ul>
-	<li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>s</code> consists of only English letters and spaces <code>&#39; &#39;</code>.</li>
-	<li>There will be at least one word in <code>s</code>.</li>
-</ul>
+---
+
+## 💡 Why This Approach?
+
+- 🚀 More efficient than splitting the string
+- 🧠 Demonstrates strong string manipulation skills
+- 💾 Uses **O(1)** extra space
+
+---
