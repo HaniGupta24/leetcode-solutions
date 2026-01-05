@@ -1,0 +1,23 @@
+📌 Problem Description
+
+Given an integer array nums, return the sum of divisors of all numbers in the array that have exactly four distinct divisors.
+
+If a number does not have exactly four divisors, it is ignored.
+
+💡 Approach
+
+For each number in the array:
+
+Iterate from 1 to √num to find divisors efficiently.
+
+For every divisor div:
+
+Add both div and num / div to the sum.
+
+Handle perfect squares carefully to avoid double counting.
+
+Keep track of the divisor count.
+
+If the count exceeds 4, stop early (optimization).
+
+If the number has exactly 4 divisors, add its divisor sum to the answer.
