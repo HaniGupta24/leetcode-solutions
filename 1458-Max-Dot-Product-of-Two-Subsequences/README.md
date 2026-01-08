@@ -1,6 +1,4 @@
-give me readme for this
 
-Here’s a clean, GitHub-ready README tailored for your solution style and LeetCode standards. You can copy-paste this directly.
 
 Maximum Dot Product of Two Subsequences
 📌 Problem Overview
@@ -25,3 +23,4 @@ Add their product and continue with (i+1, j+1)
 Since the subsequence must be non-empty, we return Integer.MIN_VALUE when we reach the end of either array.
 
 Memoization ensures that each state (i, j) is computed only once.
+
