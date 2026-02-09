@@ -51,5 +51,3 @@ A global boolean flag is used to track balance during recursion.
 Checking balance while computing height in one traversal makes the solution efficient and elegant.
 
 ---
-
-\
