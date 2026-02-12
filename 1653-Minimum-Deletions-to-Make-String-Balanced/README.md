@@ -178,6 +178,4 @@ Use the **second approach** in interviews:
 
 ---
 
-I
 
-Just tell me 🙂
