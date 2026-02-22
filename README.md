@@ -2,7 +2,7 @@
 
 # 🚀 LeetCode Solutions
 
-Welcome to my **LeetCode Solutions Repository** 👨‍💻
+Welcome to my **LeetCode Solutions Repository** 
 
 This repository contains my solutions to various problems from **LeetCode**, implemented mainly in **Java**. The purpose of this repo is to improve my problem-solving skills, strengthen data structures & algorithms concepts, and prepare for coding interviews.
 
@@ -68,6 +68,7 @@ Example:
 * Strengthen core DSA concepts
 
 ---
+
 
 
 
