@@ -1,5 +1,4 @@
 Binary Gap
-📌 Problem Statement
 
 Given a positive integer n, return the longest distance between two consecutive 1s in the binary representation of n. If there are no two consecutive 1s, return 0.
 
@@ -61,4 +60,5 @@ Bitwise AND (&)
 Right Shift (>>)
 
 Position Tracking
+
 
