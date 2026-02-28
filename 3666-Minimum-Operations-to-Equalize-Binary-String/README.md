@@ -82,7 +82,6 @@ newZ % 2 = (z + k) % 2
 
 So reachable zero counts must follow fixed parity.
 
-This helps reduce unnecessary transitions.
 
 ---
 
@@ -105,5 +104,6 @@ This helps reduce unnecessary transitions.
   * Operations array
 
 ---
+
 
 
