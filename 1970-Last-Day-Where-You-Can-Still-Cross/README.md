@@ -1,68 +1,152 @@
-📌 Problem Summary
 
-You are given a grid of size row x col that starts completely land.
-Each day, certain cells become flooded.
 
-Your task is to find the latest day on which it is still possible to walk from the top row to the bottom row using only non-flooded cells.
+## 📌 Problem Summary
 
-You can move:
+You are given a grid of size **`row × col`** that initially contains **only land**.
 
-Up
+Each day, some cells become **flooded (water)** according to the `cells` array.
 
-Down
+Your task is to find the **latest day** when it is still possible to **walk from the top row to the bottom row** using only **land cells**.
 
-Left
+### Allowed Moves
 
-Right
+From any cell you can move:
 
-💡 Approach Used
-🔍 Binary Search + BFS
+* Up
+* Down
+* Left
+* Right
 
-This problem is a classic example where we binary search on the answer.
+You **cannot step on flooded cells**.
 
-Instead of simulating day-by-day, we:
+---
 
-Binary search on the number of days
+# 💡 Approach
 
-For each mid-day:
+## Binary Search + BFS
 
-Mark flooded cells
+Instead of checking every day sequentially, we **binary search the answer**.
 
-Check if crossing is possible using BFS
+For a given day `d`:
 
-🧠 Key Observations
+1. Flood the first `d` cells.
+2. Check if we can still **reach the bottom row** from the **top row** using **BFS**.
 
-If crossing is possible on day d, it will also be possible on all days < d
+---
 
-If crossing is not possible on day d, it won’t be possible for any day > d
+# 🧠 Key Observations
 
-This monotonic behavior allows binary search
+This problem has **monotonic behavior**:
 
-🛠 Algorithm Steps
-1️⃣ Binary Search
+* If crossing **is possible on day `d`**, it will also be possible for **all days `< d`**
+* If crossing **is not possible on day `d`**, it will **not be possible for any day `> d`**
 
-left = 1, right = cells.length
+Because of this property, **binary search works perfectly**.
 
-For each mid:
+---
 
-Check if crossing is possible on that day
+# 🛠 Algorithm Steps
 
-If yes → try later days
+## 1️⃣ Binary Search
 
-If no → try earlier days
+Search the latest valid day.
 
-2️⃣ BFS Validation
+```
+left = 1
+right = cells.length
+```
 
-Create a grid and mark flooded cells
+While `left <= right`:
 
-Start BFS from all non-flooded cells in the top row
+1. Compute
 
-If we reach the bottom row → crossing is possible
+```
+mid = (left + right) / 2
+```
 
-⏱ Time & Space Complexity
+2. Check if crossing is possible on **day = mid**
 
-Time Complexity:
-O((row × col) × log(cells.length))
+3. If crossing **is possible**
 
-Space Complexity:
+```
+answer = mid
+left = mid + 1
+```
+
+4. If crossing **is not possible**
+
+```
+right = mid - 1
+```
+
+---
+
+## 2️⃣ BFS Validation
+
+To check if crossing is possible:
+
+1. Create a grid.
+2. Mark the first **`mid` cells as flooded**.
+3. Start **BFS from every non-flooded cell in the top row**.
+4. Explore using **4 directions**.
+
+If BFS reaches the **bottom row**, crossing is possible.
+
+---
+
+# 📊 Example Idea
+
+Grid:
+
+```
+Land Land Land
+Land Land Land
+Land Land Land
+```
+
+As days pass, some cells turn into water.
+
+Binary search finds the **last day when a path still exists** from **top → bottom**.
+
+---
+
+# ⏱ Complexity
+
+### Time Complexity
+
+```
+O((row × col) × log(row × col))
+```
+
+Explanation:
+
+* Binary search → `log(n)`
+* BFS each time → `O(row × col)`
+
+---
+
+### Space Complexity
+
+```
 O(row × col)
+```
+
+Used for:
+
+* Grid
+* Visited array
+* BFS queue
+
+---
+
+# 🚀 Key Insight
+
+Instead of simulating **every day**, we combine:
+
+* **Binary Search → find the last valid day**
+* **BFS → check if crossing is possible**
+
+This reduces the problem from **linear simulation** to **logarithmic search**.
+
+---
+
