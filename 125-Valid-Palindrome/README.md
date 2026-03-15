@@ -1,38 +1,208 @@
-Valid Palindrome (Two Pointers)
-📌 Problem Statement
 
-Given a string s, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
 
-A string is a palindrome if it reads the same forward and backward.
+# Valid Palindrome (Two Pointers)
 
-🧠 Optimized Approach (Two Pointers)
+## 📌 Problem Statement
 
-Instead of creating a new string or reversing it, this solution checks the palindrome in-place using two pointers.
+Given a string `s`, determine whether it is a **palindrome**, considering **only alphanumeric characters** and **ignoring cases**.
 
-Key Ideas:
+A string is a palindrome if it reads the **same forward and backward**.
 
-Ignore non-alphanumeric characters
+---
 
-Compare characters in a case-insensitive way
+# 🧠 Optimized Approach
 
-Use two pointers (left and right) moving toward the center
+## Two Pointers Technique
 
-🚀 Algorithm
+Instead of:
 
-Initialize two pointers:
+* Creating a new filtered string
+* Reversing the string
 
-left at the start of the string
+We check the palindrome **in-place** using two pointers.
 
-right at the end of the string
+This makes the solution **memory efficient**.
 
-While left < right:
+---
 
-Skip characters that are not letters or digits
+# 🔑 Key Ideas
 
-Convert characters to lowercase and compare
+1️⃣ Ignore **non-alphanumeric characters**
 
-If mismatch → return false
+Example characters to skip:
 
-Move both pointers inward
+```
+space, comma, colon, punctuation
+```
 
-If all comparisons pass → return true
+---
+
+2️⃣ Compare characters **case-insensitively**
+
+Example:
+
+```
+'A' == 'a'
+```
+
+So we convert characters to **lowercase** before comparison.
+
+---
+
+3️⃣ Use **two pointers**
+
+```
+left  → start of string
+right → end of string
+```
+
+Move both pointers **towards the center**.
+
+---
+
+# 🚀 Algorithm
+
+### Step 1
+
+Initialize pointers
+
+```
+left = 0
+right = s.length() - 1
+```
+
+---
+
+### Step 2
+
+While:
+
+```
+left < right
+```
+
+Do the following:
+
+---
+
+### Step 3
+
+Skip non-alphanumeric characters
+
+```
+while(left < right && !isalphanumeric)
+    left++
+```
+
+```
+while(left < right && !isalphanumeric)
+    right--
+```
+
+---
+
+### Step 4
+
+Compare characters
+
+```
+if lowercase(s[left]) != lowercase(s[right])
+    return false
+```
+
+---
+
+### Step 5
+
+Move pointers
+
+```
+left++
+right--
+```
+
+---
+
+### Step 6
+
+If loop finishes
+
+```
+return true
+```
+
+    }
+
+
+# 📊 Example
+
+### Input
+
+```
+s = "A man, a plan, a canal: Panama"
+```
+
+After ignoring non-alphanumeric characters:
+
+```
+amanaplanacanalpanama
+```
+
+Forward = Backward
+
+Output:
+
+```
+true
+```
+
+---
+
+### Input
+
+```
+s = "race a car"
+```
+
+Comparison fails.
+
+Output:
+
+```
+false
+```
+
+---
+
+# ⏱ Complexity
+
+### Time Complexity
+
+```
+O(n)
+```
+
+Each character is visited **at most once**.
+
+---
+
+### Space Complexity
+
+```
+O(1)
+```
+
+No extra data structures used.
+
+---
+
+# 🎯 Key Concept
+
+This problem demonstrates the **Two Pointer Technique**, which is commonly used for:
+
+* Palindrome checking
+* Sorted array problems
+* Sliding window patterns
+
+---
+
