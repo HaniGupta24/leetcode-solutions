@@ -130,12 +130,6 @@ XOR helps eliminate duplicates efficiently, leaving only the **unique element**.
 
 ---
 
-# 🧠 Interview Tip
-
-If the question says:
-
-* "Every element appears **twice except one**" → think **XOR**
-* "Every element appears **thrice except one**" → think **bit counting**
 
 ---
 
