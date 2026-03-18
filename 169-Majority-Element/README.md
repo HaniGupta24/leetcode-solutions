@@ -1,22 +1,112 @@
+# 📌 Majority Element
 
-📌 Problem Statement
+## 📘 Problem Statement
 
-Given an array nums of size n, return the majority element.
-The majority element is the element that appears more than ⌊n / 2⌋ times.
+Given an array `nums` of size `n`, return the **majority element**.
 
-💡 Approach Used: Sorting
+👉 The majority element is the element that appears **more than ⌊n / 2⌋ times**.
 
-Sort the array.
+---
 
-Since the majority element appears more than n/2 times,
-it will always be present at index n/2 after sorting.
+# 💡 Approach Used: Sorting
 
-Return the element at nums[n/2].
+## 🧠 Idea
 
-🧠 Why This Works
+1. **Sort the array**
+2. Return the element at index:
+
+```id="wwr0ck"
+n / 2
+```
+
+---
+
+# 🔍 Why This Works
 
 After sorting:
 
-All identical elements are grouped together.
+* All identical elements are **grouped together**
+* The majority element appears **more than half of the array**
 
-The majority element dominates the array, so it must occupy the middle position.
+So it **must occupy the middle position**.
+
+---
+
+### 📊 Example
+
+```id="kt3bq3"
+nums = [2, 2, 1, 1, 1, 2, 2]
+```
+
+After sorting:
+
+```id="74a50o"
+[1, 1, 1, 2, 2, 2, 2]
+```
+
+Middle index:
+
+```id="9x31pj"
+n = 7 → n/2 = 3
+```
+
+Element at index 3:
+
+```id="4ey5fi"
+2
+```
+
+✔️ Correct answer
+
+---
+
+# 💻 Java Code
+
+```java id="b44wy3"
+class Solution {
+    public int majorityElement(int[] nums) {
+        Arrays.sort(nums);
+        return nums[nums.length / 2];
+    }
+}
+```
+
+---
+
+# ⏱ Complexity
+
+### Time Complexity
+
+```id="yj8x2s"
+O(n log n)
+```
+
+Due to sorting.
+
+---
+
+### Space Complexity
+
+```id="y7q3te"
+O(1)
+```
+
+(ignoring sorting space depending on implementation)
+
+---
+
+# 🔑 Key Insight
+
+Because the majority element appears **more than n/2 times**, it will **always cross the midpoint** after sorting.
+
+---
+
+# 🚀 Better Approach (Important)
+
+The optimal solution uses **Boyer-Moore Voting Algorithm**:
+
+* Time: `O(n)`
+* Space: `O(1)`
+* No sorting needed
+
+---
