@@ -1,39 +1,129 @@
-🧮 Min Pair Sum in an Array
-📌 Problem Statement
 
-Given an integer array nums of even length, pair up the elements such that each element is used exactly once.
-Return the maximum pair sum obtained after pairing, while ensuring this maximum is as small as possible.
+# 🧮 Minimize Maximum Pair Sum in an Array
 
-💡 Approach
+## 📌 Problem Statement
 
-Sort the array in ascending order.
+You are given an integer array `nums` of **even length**.
 
-Use two pointers:
+* Pair up elements such that **each element is used exactly once**
+* Return the **minimum possible value of the maximum pair sum**
 
-One pointer at the start (i)
+---
 
-One pointer at the end (j)
+# 💡 Approach
 
-Pair the smallest element with the largest element.
+## Greedy + Two Pointers
 
-Compute their sum and keep track of the maximum pair sum.
+---
 
-Move pointers inward and repeat until all pairs are formed.
+## 🧠 Key Idea
 
-This greedy strategy minimizes the largest pair sum.
+To **minimize the maximum pair sum**, we:
 
-✅ Algorithm
+👉 Pair:
 
-Sort the array.
+* **Smallest element** with **largest element**
 
-Initialize two pointers i = 0 and j = n - 1.
+This balances the sums and prevents large values from dominating.
 
-While i < j:
+---
 
-Calculate nums[i] + nums[j]
+# 🔍 Why This Works
 
-Update the maximum pair sum
+If we pair:
 
-Increment i and decrement j
+* Large + Large → very big sum ❌
+* Small + Small → leaves large numbers to pair later ❌
 
-Return the maximum pair sum.
+But:
+
+* Small + Large → balanced pairs ✅
+
+This **greedy strategy** ensures the maximum pair sum is minimized.
+
+---
+
+# 🛠 Algorithm
+
+### 1️⃣ Sort the array
+
+```id="m7y74m"
+Arrays.sort(nums);
+```
+
+---
+
+### 2️⃣ Initialize pointers
+
+```id="s9lq2n"
+i = 0
+j = n - 1
+```
+
+---
+
+### 3️⃣ Pair elements
+
+While `i < j`:
+
+```id="c9m6n3"
+sum = nums[i] + nums[j]
+maxSum = max(maxSum, sum)
+i++
+j--
+```
+
+---
+
+### 4️⃣ Return result
+
+```id="q1ps6y"
+maxSum
+```
+
+
+# 📊 Example
+
+### Input
+
+```id="7q1wve"
+nums = [3,5,2,3]
+```
+
+### After sorting
+
+```id="y2l7s3"
+[2,3,3,5]
+```
+
+### Pairing
+
+| Pair  | Sum |
+| ----- | --- |
+| 2 + 5 | 7   |
+| 3 + 3 | 6   |
+
+Maximum = **7**
+
+---
+
+# ⏱ Complexity
+
+### Time Complexity
+
+```id="5z1j3u"
+O(n log n)
+```
+
+(due to sorting)
+
+---
+
+### Space Complexity
+
+```id="9v9t0u"
+O(1)
+```
+
+---
+
