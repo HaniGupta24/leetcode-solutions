@@ -235,6 +235,3 @@ O(4 × n²)
 ```
 
 
-
-
-If you'd like, I can also show the **in-place matrix rotation method (transpose + reverse)** — another very common interview rotation question.
