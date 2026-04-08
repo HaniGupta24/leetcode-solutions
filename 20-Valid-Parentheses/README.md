@@ -1,23 +1,126 @@
-Valid Parentheses (Java)
 
-This repository contains my Java solution for the Valid Parentheses problem from LeetCode.
 
-Problem
+# 📌 Problem Summary
 
-Given a string containing (), {}, and [], check if the parentheses are valid.
+Given a string containing only:
 
-The string is valid if:
+```text
+( ) { } [ ]
+```
 
-Every opening bracket has a closing bracket
+Return:
 
-Brackets are closed in the correct order
+```text
+true  → if brackets are valid
+false → otherwise
+```
 
-Approach
+A string is valid if:
 
-I solved this by:
+✅ Every opening bracket has a matching closing bracket
+✅ Order is correct
+✅ Proper nesting exists
 
-Repeatedly removing valid pairs like (), {}, and []
+Example:
 
-If the string becomes empty, it is valid
+```text
+()[]{}   → valid
+(]       → invalid
+([)]     → invalid
+{[]}     → valid
+```
 
-Otherwise, it is not valid
+---
+
+# 🧠 Your Approach: Repeated Replacement Method
+
+Idea:
+
+Keep removing valid pairs:
+
+```java
+()
+{}
+[]
+```
+
+Until:
+
+```text
+string becomes empty → valid
+string remains → invalid
+```
+
+### Example
+
+```
+s = "{[]}"
+```
+
+Step-by-step:
+
+```
+{[]}
+{}
+(empty)
+```
+
+Return:
+
+```
+true
+```
+
+
+---
+
+# ⏱ Complexity of Your Method
+
+### Time Complexity
+
+Worst case:
+
+```
+O(n²)
+```
+
+Because each replacement scans the string again.
+
+### Space Complexity
+
+```
+O(n)
+```
+
+New strings created repeatedly.
+
+Works fine, but **not ideal for interviews**.
+
+---
+
+
+
+
+
+# 📊 Complexity (Stack Approach)
+
+### Time Complexity
+
+```
+O(n)
+```
+
+Single traversal.
+
+### Space Complexity
+
+```
+O(n)
+```
+
+Stack storage.
+
+---
+
+
+

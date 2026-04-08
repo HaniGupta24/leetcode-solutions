@@ -1,45 +1,133 @@
-📌 Problem Statement
 
-Given two strings s and t, determine if they are isomorphic.
+# 🔤 Isomorphic Strings
 
-Two strings are isomorphic if the characters in s can be replaced to get t, with the following rules:
+## 📌 Problem Statement
 
-Each character must map to exactly one character.
+Two strings `s` and `t` are **isomorphic** if:
 
-No two different characters may map to the same character.
+* Each character in `s` maps to **exactly one** character in `t`
+* No two different characters in `s` map to the **same character** in `t`
+* Character order remains preserved
 
-The order of characters must be preserved.
+Example:
 
-🧠 Approach
+```text
+egg → add   ✅ isomorphic
+foo → bar   ❌ not isomorphic
+paper → title ✅ isomorphic
+```
 
-To solve this problem, we:
+---
 
-Check length – If s and t have different lengths, they cannot be isomorphic.
+# 🧠 Approach (HashMap + HashSet)
 
-Use a HashMap to store character mappings from s → t.
+We maintain:
 
-Use a HashSet to ensure that no two characters in s map to the same character in t.
+```text
+HashMap<Character, Character>  → mapping s → t
+HashSet<Character>             → track already mapped characters in t
+```
 
-Traverse both strings character by character:
+Why both?
 
-If a character from s is already mapped, verify it maps to the correct character in t.
+* HashMap ensures **consistent mapping**
+* HashSet ensures **no duplicate target mapping**
 
-If not mapped, ensure the target character in t is not already used.
+This guarantees **one-to-one mapping (bijection)** ✅
 
-✅ Algorithm Steps
+---
 
-If s.length() != t.length(), return false
+# ✅ Algorithm Steps
 
-Initialize:
+### Step 1: Length check
 
-HashMap<Character, Character> for mapping
+```java
+if(s.length() != t.length())
+    return false;
+```
 
-HashSet<Character> to track already mapped characters
+Different sizes → impossible mapping
 
-Loop through characters:
+---
 
-If mapping exists → validate
+### Step 2: Traverse both strings
 
-Else → create mapping if safe
+For each index `i`:
 
-If no conflicts found, return true
+Case 1️⃣ mapping already exists
+
+```java
+if(map.containsKey(sChar))
+```
+
+Check:
+
+```java
+map.get(sChar) == tChar
+```
+
+If mismatch → return false
+
+---
+
+Case 2️⃣ mapping does NOT exist
+
+Check whether `tChar` already mapped earlier
+
+```java
+if(set.contains(tChar))
+    return false;
+```
+
+Otherwise create mapping
+
+
+
+---
+
+# 📊 Example Walkthrough
+
+Example:
+
+```text
+s = paper
+t = title
+```
+
+Mapping builds like:
+
+```text
+p → t
+a → i
+p → t (already correct)
+e → l
+r → e
+```
+
+No conflicts ✅
+
+Return:
+
+```text
+true
+```
+
+---
+
+# ⏱ Complexity Analysis
+
+### Time Complexity
+
+```text
+O(n)
+```
+
+Single traversal
+
+---
+
+### Space Complexity
+
+```text
+O(1)
+```

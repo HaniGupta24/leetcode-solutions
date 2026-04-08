@@ -1,30 +1,180 @@
-🧠 Approach
 
-Use two Priority Queues
+# 📌 Meeting Rooms III – Approach (Priority Queue Strategy)
 
-Available: free rooms (min room number first)
+## 🧠 Approach
 
-Busy: rooms in use {endTime, room}
+We use **two Priority Queues**:
 
-Sort meetings by start time
+### 1️⃣ Available Rooms Queue
 
-Free rooms when meetings end
+* Stores **free rooms**
+* Always assigns the **smallest room number first**
+* Type: `Min Heap`
 
-Assign or delay meetings accordingly
+```
+availableRooms → [roomNumber]
+```
 
-Count meetings per room
+---
 
-⏱️ Complexity
+### 2️⃣ Busy Rooms Queue
 
-Time: O(m log n)
+* Stores rooms currently in use
+* Keeps track of **when each room becomes free**
+* Structure:
 
-Space: O(n)
+```
+busyRooms → {endTime, roomNumber}
+```
 
-✅ Result
+Sorted by:
 
-Efficient, clean solution using priority queues.
-Accepted on LeetCode ✔️
+* earliest `endTime`
+* if tie → smaller `roomNumber`
 
-If you want an ultra-short (5 lines) version or one matching your LeetCode repo style, tell me 😄
+---
 
-Do you like this personality?
+## 📌 Steps
+
+### Step 1: Sort meetings
+
+Sort all meetings based on:
+
+```
+start time
+```
+
+So meetings are processed chronologically.
+
+---
+
+### Step 2: Release finished rooms
+
+Before assigning a meeting:
+
+```
+while busyRooms.peek().endTime ≤ meeting.start
+    move room → availableRooms
+```
+
+This frees rooms whose meetings already ended.
+
+---
+
+### Step 3: Assign room
+
+### Case A: Room available
+
+If:
+
+```
+availableRooms NOT empty
+```
+
+Assign:
+
+```
+smallest room number
+```
+
+Update:
+
+```
+busyRooms.add({meeting.endTime, room})
+```
+
+Increase count:
+
+```
+roomUsage[room]++
+```
+
+---
+
+### Case B: No room available
+
+Delay meeting until earliest room becomes free:
+
+```
+earliestRoom = busyRooms.poll()
+```
+
+New meeting time:
+
+```
+newEndTime = earliestRoom.endTime + duration
+```
+
+Push back:
+
+```
+busyRooms.add({newEndTime, room})
+```
+
+Increase usage:
+
+```
+roomUsage[room]++
+```
+
+---
+
+### Step 4: Return answer
+
+Return room with:
+
+```
+maximum meetings hosted
+```
+
+If tie:
+
+```
+return smallest room number
+```
+
+---
+
+## ⏱️ Complexity Analysis
+
+Let:
+
+```
+n = number of rooms
+m = number of meetings
+```
+
+### Time Complexity
+
+```
+Sorting meetings → O(m log m)
+Heap operations → O(m log n)
+```
+
+Overall:
+
+```
+O(m log m + m log n)
+≈ O(m log m)
+```
+
+(Usually written as **O(m log n)** in discussion context)
+
+---
+
+### Space Complexity
+
+```
+availableRooms heap → O(n)
+busyRooms heap → O(n)
+roomUsage array → O(n)
+```
+
+Total:
+
+```
+O(n)
+```
+
+---
+
