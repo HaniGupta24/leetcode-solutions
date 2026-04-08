@@ -119,5 +119,3 @@ XOR of array after applying all queries
 ```
 
 ---
-
-If you're adding this to your **DSA GitHub repo or DBMS assignment-style documentation (like the ones you've been preparing)**, I can format it in your usual structured template format as well.
