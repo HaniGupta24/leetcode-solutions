@@ -1,5 +1,5 @@
 
-# Remove Duplicates from Sorted Array (Java)
+# Remove Duplicates from Sorted Array 
 
 ## 📌 Problem Statement
 
