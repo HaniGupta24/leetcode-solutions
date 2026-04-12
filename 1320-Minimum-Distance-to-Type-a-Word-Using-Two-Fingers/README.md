@@ -1,6 +1,6 @@
 
 
-# 📌 Minimum Distance to Type a Word Using Two Fingers (README)
+# 📌 Minimum Distance to Type a Word Using Two Fingers 
 
 ## 🔹 Problem Idea
 
