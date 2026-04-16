@@ -1,49 +1,150 @@
-📌 Problem Overview
+# 📌 Problem Logic (Correct Insight)
 
-Given a list of integers nums, for each element:
+We need to find **minimum x** such that:
 
-If the number is even, return -1
+[
+x ;|; (x+1) = \text{num}
+]
 
-If the number is odd, compute the minimum possible value x such that:
+### Case 1: If `num` is even
 
-x | (x + 1) = num
+Return **-1**
 
+Why?
+Because:
 
-Store results in an integer array and return it
+```
+x | (x+1)  → always produces an odd number
+```
 
-💡 Key Observations
+Example:
 
-Even numbers can never satisfy
-x | (x + 1) = even
-➜ directly return -1
+```
+2 | 3 = 3
+4 | 5 = 5
+6 | 7 = 7
+```
+
+So result is always **odd**, never even.
+
+✔ Therefore:
+
+```
+if num % 2 == 0 → answer = -1
+```
+
+---
+
+# 📌 Case 2: If `num` is odd
+
+Your observation is correct:
+
+> Binary representation of odd numbers ends with **1**
+
+But the step:
+
+> unset the lowest set bit
+
+❌ This is **not always correct**
+
+Instead:
+
+### Correct idea
+
+Find the **rightmost 0-bit before the last sequence of 1s**, then flip it.
+
+---
+
+# 📌 Example Understanding
+
+Example:
+
+```
+num = 7
+binary = 111
+```
+
+Try smallest x:
+
+```
+x = 3
+binary = 011
+
+x+1 = 4
+binary = 100
+
+3 | 4 = 7 ✅
+```
+
+So answer:
+
+```
+x = 3
+```
+
+---
+
+Example:
+
+```
+num = 11
+binary = 1011
+```
+
+Answer:
+
+```
+x = 9
+binary = 1001
+
+9 | 10 = 11 ✅
+```
+
+---
+
+# 📌 Correct Bit Trick Formula
 
 For odd numbers:
 
-Binary representation always ends with 1
+```
+x = num ^ (num >> 1)
+```
 
-To minimize x, we try to unset the lowest set bit
+Actually better logic:
 
-We scan bits from LSB to MSB
+```
+x = num - (lowest power of 2 inside trailing 1s)
+```
 
-First 1 bit found → unset it
+But simplest working approach:
 
-⚙️ Approach Explanation
-Step-by-step:
+### Efficient method
 
-Initialize result array ans
+```
+x = num & (num - 1)
+```
 
-Traverse each number in nums
+---
 
-If number is even → ans[i] = -1
+# 📌 Final Algorithm (Best Approach)
 
-Else:
+```
+for each num:
 
-Start with bit = 1 (LSB)
+    if even:
+        ans[i] = -1
+    else:
+        ans[i] = num & (num - 1)
+```
 
-While current bit is set:
 
-Unset it using num & (~bit)
 
-Move to next bit (bit <<= 1)
+# 📌 Time Complexity
 
-Store computed value in ans
+```
+O(n)
+```
+
+Very efficient ✅
+
+---
