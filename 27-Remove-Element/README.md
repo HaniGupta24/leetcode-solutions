@@ -1,8 +1,6 @@
 
 
----
-
-# Remove Element from Array (Java)
+# Remove Element from Array 
 
 ## 📌 Problem Statement
 
