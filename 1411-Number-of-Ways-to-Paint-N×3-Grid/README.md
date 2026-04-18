@@ -1,4 +1,3 @@
-﻿Approach of 1411. Number of Ways to Paint N × 3 Grid
 
 # Number of Ways to Paint a 3×N Grid
 
